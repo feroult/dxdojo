@@ -1,5 +1,9 @@
 class Calculator(object):
- 
+    atributo = 0
+
+    def __init__(self):
+        self.atributo =0
+
     def add(self, x, y):
         return x+y
 
@@ -17,3 +21,7 @@ class Calculator(object):
     	arr['tst1'] = 1
     	arr['tst2'] = 2
         return arr
+    
+    def increase(self, x):
+	self.atributo += x;
+        return self.atributo;

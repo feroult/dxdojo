@@ -3,7 +3,7 @@ import json
 from calculator import Calculator
  
 class CalculatorTest(unittest.TestCase):
- 
+    
     def test_calculator_add_method_returns_correct_result(self):
         calc = Calculator()
         result = calc.add(2,2)
@@ -18,6 +18,13 @@ class CalculatorTest(unittest.TestCase):
         calc = Calculator()
         arr = calc.map();
         print(json.dumps(arr));
+
+    def test_atributo(self):
+        calc = Calculator()
+        calc.increase(10);
+        calc.increase(15);
+        print('atributo '+str(calc.atributo));
+
 
 def main():
     unittest.main()
