@@ -1,4 +1,4 @@
-class Calculator(object):
+class Calculator:
     atributo = 0
 
     def __init__(self):
@@ -17,11 +17,12 @@ class Calculator(object):
         return arr
 
     def map(self):
-    	arr = {};
+    	arr = {}
     	arr['tst1'] = 1
     	arr['tst2'] = 2
         return arr
     
     def increase(self, x):
-	self.atributo += x;
-        return self.atributo;
+        self.atributo += x
+        return self.atributo
+
