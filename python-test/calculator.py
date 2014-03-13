@@ -1,6 +1,5 @@
 class Calculator:
     atributo = 0
-
     def __init__(self):
         self.atributo =0
 
