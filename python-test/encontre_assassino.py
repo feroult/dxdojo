@@ -22,19 +22,37 @@ class Detetive:
 			if(self.local != local_chutado):
 				erros.append(3)
 
-			# if(erros.length == 1)
-			# 	return erros[0]
-			# else
 			return erros[randint(0 ,len(erros)-1)]
 
-	def ehSuspeito(self, suspeito):
-		return suspeito in self.suspeitos
+	def filter(self,obj, arr):
+		retorno = []
+		for a in arr:
+			if(a !=obj):
+				retorno.append(a)
+		return retorno
 
-	def ehLocalPossivel(self, local_possivel):
-		return local_possivel in self.locais
+	def resolver_crime(self):
+		resposta = -1
+		while(resposta != 0):
+			suspeito = self.suspeitos[randint(0,len(self.suspeitos)-1)]
+			possivel_arma = self.armas[randint(0,len(self.armas)-1)]
+			possivel_local = self.locais[randint(0,len(self.locais)-1)]
 
-	def ehArmaPossivel(self, arma_possivel):
-		return arma_possivel in self.armas
+			resposta = self.descobrir_assassino(suspeito, possivel_arma, possivel_local)
 
+			if(resposta == 1):
+				self.suspeitos = self.filter(suspeito, self.suspeitos)
+			
+			if(resposta == 2):
+				self.armas = self.filter(possivel_arma, self.armas)
 
+			if (resposta == 3):
+				self.locais = self.filter(possivel_local, self.locais)
 
+		return {"suspeito" : suspeito, "arma" : possivel_arma, "local" : possivel_local}
+
+def main():
+    unittest.main()
+
+if __name__ == '__main__':
+    main()

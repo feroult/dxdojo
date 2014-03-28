@@ -19,25 +19,11 @@ class Encontre_Assassino_Test(unittest.TestCase):
 		self.assertTrue(contemErro)
 
 	def test_inicio_do_jogo(self):
-		detetive = Detetive(0,0,0)
-		for i in detetive.suspeitos:
-			self.assertTrue(detetive.ehSuspeito(i))
-
-		for i in detetive.locais:
-			self.assertTrue(detetive.ehLocalPossivel(i))
-
-		for i in detetive.armas:
-			self.assertTrue(detetive.ehArmaPossivel(i))
-			
-		#self.assertTrue(detetive.arma(i))
-		#self.assertTrue(detetive.local(i))	
-
-	# def test_memoria_do_detetive(self):
-	# 	detetive = Detetive(0,0,0)
-
-	# 	detetive.descobrir_assassino(1, 0, 0)
-	# 	assertFalse(detetive.suspeito(1));
-
+		detetive = Detetive(1,3,5)
+		dados_do_crime = detetive.resolver_crime()
+		self.assertEqual(1, dados_do_crime["suspeito"])
+		self.assertEqual(3, dados_do_crime["arma"])
+		self.assertEqual(5, dados_do_crime["local"])
 
 
 def main():
